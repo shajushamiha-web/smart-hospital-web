@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Hospital Care</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#f4f6f8;
+}
+
+header{
+    background:#0077b6;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+    height:160px;
+    object-fit:cover;
+}
+
+h2{
+    color:#0077b6;
+}
+
+button{
+    background:#0077b6;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+select,input{
+    width:100%;
+    padding:7px;
+    margin:5px 0;
+}
+
+footer{
+    background:#0077b6;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+
+.emergency{
+    background:red;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏥 Smart Hospital Care System</h1>
+    <p>Avoid queues • Find hospitals • Emergency help</p>
+</header>
+
+<div class="container">
+
+<!-- TOKEN -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309"> <!-- reused Disease image -->
+    <h2>🎟 Token Alert</h2>
+    <input type="number" id="token" placeholder="Enter your token">
+    <button onclick="tokenAlert()">Check Token</button>
+    <p id="tokenMsg"></p>
+</div>
+<!-- LOCATION -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118">
+    <h2>📍 Nearby Hospitals</h2>
+    <select id="area">
+        <option>Select Area</option>
+        <option>City Center</option>
+        <option>Main Road</option>
+        <option>Bus Stand</option>
+    </select>
+    <button onclick="findArea()">Find</button>
+    <p id="areaResult"></p>
+</div>
+
+<!-- DISEASE -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309">
+    <h2>🩺 Disease Based Hospital</h2>
+    <select id="disease">
+        <option>Fever</option>
+        <option>Heart</option>
+        <option>Eye</option>
+        <option>Skin</option>
+    </select>
+    <button onclick="findDisease()">Search</button>
+    <p id="diseaseResult"></p>
+</div>
+
+<!-- DOCTORS -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464">
+    <h2>👨‍⚕️ Top Doctors</h2>
+    <ul>
+        <li>Dr. Kumar – Heart</li>
+        <li>Dr. Priya – General</li>
+        <li>Dr. Ahmed – Eye</li>
+        <li>Dr. Rani – Skin</li>
+    </ul>
+</div>
+
+<!-- MEDICAL SHOP -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831">
+    <h2>💊 Medical Shops</h2>
+    <ul>
+        <li>City Medicals</li>
+        <li>Health Plus</li>
+        <li>24x7 Pharmacy</li>
+    </ul>
+</div>
+
+<!-- FIRST AID -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831"> <!-- reused Medical Shop image -->
+    <h2>🚑 First Aid</h2>
+    <ul>
+        <li>Burns → Cool water</li>
+        <li>Bleeding → Pressure</li>
+        <li>Fever → Rest & fluids</li>
+        <li>Fracture → Do not move</li>
+    </ul>
+</div>
+
+<!-- EMERGENCY -->
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464"> <!-- reused Top Doctors image -->
+    <h2>🚨 Emergency Help</h2>
+    <button class="emergency" onclick="emergency()">Call Emergency</button>
+</div>
+</div>
+
+<footer>
+    Mini Project | Designed by shajitha
+</footer>
+
+<script>
+function tokenAlert(){
+    let t=document.getElementById("token").value;
+    if(t>0){
+        alert("🔔 Your token will be notified soon!");
+        document.getElementById("tokenMsg").innerHTML="You can relax and come later 👍";
+    }
+}
+
+function findArea(){
+    document.getElementById("areaResult").innerHTML="🏥 Nearest: City General Hospital";
+}
+
+function findDisease(){
+    let d=document.getElementById("disease").value;
+    document.getElementById("diseaseResult").innerHTML="Suggested Hospital for "+d;
+}
+
+function emergency(){
+    alert("🚑 Emergency services contacted!");
+}
+</script>
+
+</body>
+</html>
